@@ -24,7 +24,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
    <div className="header-actions"><Button className="nav-cta" onClick={() => book()}>Book a site visit <ArrowUpRight/></Button><Button variant="ghost" size="icon" className="mobile-toggle" aria-label={menu ? 'Close navigation' : 'Open navigation'} aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? <X/> : <Menu/>}</Button></div>
   </div>{menu && <nav className="mobile-nav" aria-label="Mobile navigation">{nav.map(([label, to]) => <Link to={to} key={to}>{label}<ArrowUpRight size={18}/></Link>)}<Button onClick={() => { setMenu(false); book(); }}>Book a site visit <ArrowUpRight/></Button></nav>}</header>
   <main>{children}</main><Footer/>
-  <Dialog open={booking} onOpenChange={setBooking}><DialogContent className="booking-drawer"><span className="eyebrow">LET’S MAKE YOUR NEXT MOVE</span><DialogTitle className="drawer-title">A better future.<br/>Starts with a conversation.</DialogTitle><DialogDescription>Tell us what you have in mind. We’ll help you explore the right options.</DialogDescription><BookingForm project={project}/></DialogContent></Dialog>
+  <Dialog open={booking} onOpenChange={setBooking}><DialogContent className="booking-drawer left-auto right-0 top-0 translate-x-0 translate-y-0 data-[state=open]:animate-none"><span className="eyebrow">LET’S MAKE YOUR NEXT MOVE</span><DialogTitle className="drawer-title">A better future.<br/>Starts with a conversation.</DialogTitle><DialogDescription>Tell us what you have in mind. We’ll help you explore the right options.</DialogDescription><BookingForm project={project}/></DialogContent></Dialog>
  </BookingContext.Provider>;
 }
 export function Reveal({ children, className = '' }: {children: ReactNode; className?: string}) {
