@@ -6,7 +6,7 @@ export const submitEnquiry = createServerFn({ method: 'POST' })
   .inputValidator(data => enquirySchema.parse(data))
   .handler(async ({ data }) => {
     const url = process.env['SUPABASE_URL'];
-    const key = process.env['SUPABASE_ANON_KEY'] ?? import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+    const key = process.env['SUPABASE_ANON_KEY'] ?? import.meta.env['VITE_SUPABASE_PUBLISHABLE_KEY'];
     if (!url || !key) throw new Error('Enquiries are temporarily unavailable. Please try again later.');
     const client = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false }, global: { fetch: (input, init) => {
       const headers = new Headers(init?.headers);
