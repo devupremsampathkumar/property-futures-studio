@@ -324,7 +324,7 @@ h2 { font-size:42px; line-height:1.16; font-weight:500; }
 .footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:20px; font-size:9px; color:var(--muted-foreground); margin-top:65px; padding:23px 0; border-top:1px solid var(--line); }
 .footer-bottom>div { display:flex; gap:25px; }
 .footer-wordmark { text-align:center; font-family:var(--font-display); font-size:140px; font-weight:500; line-height:1.2; color:var(--line); white-space:nowrap; margin-bottom:-30px; }
-.booking-drawer { left:auto; right:0; top:0; height:100dvh; width:100%; max-width:590px; transform:none; translate:none; border-radius:0!important; padding:55px 45px; display:block; overflow-y:auto; }
+.booking-drawer { left:auto!important; right:0; top:0!important; height:100dvh; width:100%; max-width:590px; transform:none!important; translate:none!important; animation:none!important; border-radius:0!important; padding:55px 45px; display:block; overflow-y:auto; }
 .booking-drawer>.eyebrow { margin-bottom:20px; }
 .drawer-title { font-size:32px; font-weight:500; line-height:1.2; margin-bottom:15px; }
 .booking-drawer>p { line-height:1.7; font-size:12px; margin-bottom:35px; }
