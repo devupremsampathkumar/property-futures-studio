@@ -1,0 +1,5 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { PageIntro, Solutions, Process, ContactSection } from '@/components/site';
+import { pageHead } from '@/lib/site-data';
+export const Route = createFileRoute('/services')({ head: () => pageHead('Planning, estimation & construction', 'From architectural planning to cost estimation and coordinated construction, explore end-to-end support for your home.'), component: Services });
+function Services() { return <><PageIntro label="ONE TEAM. A COMPLETE JOURNEY." title={<>From your first idea.<br/>To your front <em>door.</em></>} text="Architectural planning, practical estimates and professionally coordinated execution. Guidance for every stage of your property and construction journey."/><Solutions/><Process/><ContactSection/></>; }
