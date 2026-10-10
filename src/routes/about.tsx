@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { PageIntro, AboutBlock, Trust, ContactSection } from '@/components/site';
-import { pageHead } from '@/lib/site-data';
+import { pageHead, visual3d } from '@/lib/site-data';
 export const Route = createFileRoute('/about')({ head: () => pageHead('About us', 'Our approach to real estate and construction is centred around transparency, quality and long-term customer relationships.'), component: About });
 function About() { return <><PageIntro label="ROOTED IN TRUST. BUILT FOR LIFE." title={<>Better spaces.<br/>Stronger <em>relationships.</em></>} text="We are a real estate and construction solutions company focused on helping individuals and families find the right property and build better residential spaces."/><AboutBlock/><section className="section mission-grid"><div><span className="eyebrow">OUR MISSION</span><h3>A simpler path forward.</h3><p>To make real estate and construction simpler, more transparent and accessible for every customer.</p></div><div><span className="eyebrow">OUR VISION</span><h3>A name built on trust.</h3><p>To become a trusted name in residential real estate and construction solutions.</p></div></section><Trust/><ContactSection/></>; }
