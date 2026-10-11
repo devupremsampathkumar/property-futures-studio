@@ -79,10 +79,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Land & Living — Real Estate & Construction" },
+      { title: "BVS Futuretech Engineers — Real Estate & Construction" },
       { name: "description", content: "Thoughtful real estate and end-to-end construction solutions." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Land & Living" },
+      { property: "og:title", content: "BVS Futuretech Engineers" },
       { property: "og:description", content: "Thoughtful real estate and end-to-end construction solutions." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
