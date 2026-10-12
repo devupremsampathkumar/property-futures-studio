@@ -28,8 +28,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
  useEffect(() => { setMenu(false); }, [pathname]);
  function book(name = '') { setProject(name); setBooking(true); }
  return <BookingContext.Provider value={book}>
-  <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}><div className="header-inner">
-   <Link to="/" className="brand-logo" aria-label={`${BRAND} home`}><img src={logo.url} alt={BRAND} width={1146} height={604}/></Link>
+  <Loader/>
+   <header className={`site-header ${scrolled || menu ? 'is-scrolled' : ''} ${pathname === '/' && !scrolled && !menu ? 'is-transparent' : ''}`}><div className="header-inner">
+   <Link to="/" className="brand-logo" aria-label={`${BRAND} home`}><img className="logo-white" src={logoWhite.url} alt="" width={452} height={244}/><img className="logo-blue" src={logoBlue.url} alt={BRAND} width={1143} height={616}/></Link>
    <nav className="desktop-nav" aria-label="Main navigation">{nav.map(([label, to]) => <Link key={to} to={to} activeOptions={{ exact: true, includeSearch: false }} activeProps={{ className: 'nav-active', 'aria-current': 'page' }}>{label}</Link>)}</nav>
    <div className="header-actions"><Button className="nav-cta" onClick={() => book()}>Book a site visit <ArrowUpRight/></Button><Button variant="ghost" size="icon" className="mobile-toggle" aria-label={menu ? 'Close navigation' : 'Open navigation'} aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? <X/> : <Menu/>}</Button></div>
   </div><nav className={`mobile-nav ${menu ? 'is-open' : ''}`} aria-label="Mobile navigation" aria-hidden={!menu}>{nav.map(([label, to]) => <Link to={to} key={to} tabIndex={menu ? 0 : -1} activeOptions={{ exact: true, includeSearch: false }} activeProps={{ className: 'nav-active', 'aria-current': 'page' }}>{label}<ArrowUpRight size={18}/></Link>)}<Button tabIndex={menu ? 0 : -1} onClick={() => { setMenu(false); book(); }}>Book a site visit <ArrowUpRight/></Button></nav></header>
