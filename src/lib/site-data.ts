@@ -5,14 +5,16 @@ import planning from '@/assets/svc-planning.jpg';
 import estimation from '@/assets/svc-estimation.jpg';
 import construction from '@/assets/svc-construction.jpg';
 import visual3d from '@/assets/svc-3d.jpg';
+import architect from '@/assets/svc-architect.jpg';
+import model3d from '@/assets/svc-3d-model.jpg';
 export { residences, plots, apartments, planning, estimation, construction, visual3d };
 export const BRAND = 'BVS Futuretech Engineers';
 export const WHATSAPP_DISPLAY = '+91 96038 13915';
 export function waLink(message = `Hello ${BRAND}, I would like to know more about your real estate and construction services.`) { return `https://wa.me/919603813915?text=${encodeURIComponent(message)}`; }
 export const serviceShowcase = [
- { title: 'Architectural Planning & Design', text: 'Architectural planning and design solutions tailored to your land, lifestyle and requirements.', image: planning, alt: 'Floor plan blueprints and drafting tools on a planning desk' },
+ { title: 'Architectural Planning & Design', text: 'Architectural planning and design solutions tailored to your land, lifestyle and requirements.', image: architect, alt: 'Architect sketching a residential site plan on a drawing table' },
  { title: '2D Architectural Drawings', text: 'Clear floor plans and working drawings that turn your requirements into a buildable layout.', image: planning, alt: 'Detailed 2D floor plan drawing', pos: '30% 70%' },
- { title: '3D Architectural Visualization', text: 'Realistic 3D views that help you see your home before construction begins.', image: visual3d, alt: '3D visualization of a modern two-storey villa at dusk' },
+ { title: '3D Architectural Visualization', text: 'Realistic 3D views that help you see your home before construction begins.', image: model3d, alt: 'Isometric 3D model of a modern three-storey residential building' },
  { title: 'Construction Cost Estimation', text: 'Clear and practical construction cost estimates to help you plan your investment with confidence.', image: estimation, alt: 'Quantity sheets, calculator and construction material samples' },
  { title: 'Construction Services', text: 'From planning to construction, we coordinate execution with a focus on quality, timelines and workmanship.', image: construction, alt: 'Residential building under construction with a tower crane' },
  { title: 'Residential Plots for Sale', text: 'Well-planned residential plots in promising locations, selected with your requirements in mind.', image: plots, alt: 'Planned residential plot layout' },
@@ -45,3 +47,13 @@ export const steps = [
  ['Bring it to life', 'Move from approved plans to professionally coordinated project execution.'],
 ];
 export function pageHead(title: string, description: string) { return { meta: [{ title: `${title} — BVS Futuretech Engineers` }, { name: 'description', content: description }, { property: 'og:title', content: `${title} — BVS Futuretech Engineers` }, { property: 'og:description', content: description }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] }; }
+
+// SAMPLE CONTENT — not real client reviews. Replace with verified, client-approved testimonials before launch.
+export const sampleTestimonials = [
+ { quote: 'The team explained every step of the plot purchase clearly and patiently.', role: 'Plot buyer' },
+ { quote: 'Seeing our home in 3D before construction made decisions far easier.', role: 'Home owner' },
+ { quote: 'The cost estimate helped us plan our budget with confidence.', role: 'Individual builder' },
+ { quote: 'Site visits were well organised and all our questions were answered.', role: 'Flat buyer' },
+ { quote: 'Planning, drawings and execution were coordinated in one place.', role: 'Residential client' },
+ { quote: 'Regular updates meant we always knew where our project stood.', role: 'Home owner' },
+];
