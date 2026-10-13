@@ -48,12 +48,14 @@ export const steps = [
 ];
 export function pageHead(title: string, description: string) { return { meta: [{ title: `${title} — BVS Futuretech Engineers` }, { name: 'description', content: description }, { property: 'og:title', content: `${title} — BVS Futuretech Engineers` }, { property: 'og:description', content: description }, { property: 'og:type', content: 'website' }, { name: 'twitter:card', content: 'summary_large_image' }] }; }
 
-// SAMPLE CONTENT — not real client reviews. Replace with verified, client-approved testimonials before launch.
-export const sampleTestimonials = [
- { quote: 'The team explained every step of the plot purchase clearly and patiently.', role: 'Plot buyer' },
- { quote: 'Seeing our home in 3D before construction made decisions far easier.', role: 'Home owner' },
- { quote: 'The cost estimate helped us plan our budget with confidence.', role: 'Individual builder' },
- { quote: 'Site visits were well organised and all our questions were answered.', role: 'Flat buyer' },
- { quote: 'Planning, drawings and execution were coordinated in one place.', role: 'Residential client' },
- { quote: 'Regular updates meant we always knew where our project stood.', role: 'Home owner' },
+// CLIENT-SUPPLIED REVIEWS — provided by the business. Do not edit or extend without approval.
+export const testimonials = [
+ { name: 'Rajesh Kumar', service: 'House Construction', quote: 'BVS Futuretech Engineers helped us plan our dream home with a professional approach. Their guidance and attention to detail made the process smooth and organized.' },
+ { name: 'Suresh Prasad', service: 'Residential Plots for Sale', quote: 'The team guided us in exploring residential plot options and explained the process clearly. Their support made our property search easier.' },
+ { name: 'Venkata Naidu', service: 'Architectural Planning & Design', quote: 'The architectural planning was practical and suited our family’s requirements. The team understood our ideas and helped turn them into a clear plan.' },
+ { name: 'Kiran Reddy', service: '2D & 3D Architectural Design', quote: 'The 3D design helped us visualize our future home before construction. The team listened to our feedback and made the necessary design adjustments.' },
+ { name: 'Anil Mohan', service: 'Construction Cost Estimation', quote: 'The construction cost estimation gave us a better understanding of our budget. The detailed breakdown helped us plan our project more confidently.' },
+ { name: 'Sai Ram', service: 'Flats & Apartments for Sale', quote: 'BVS Futuretech Engineers helped us explore apartment options and understand the available choices. Their professional communication made the experience easier.' },
+ { name: 'Praveen Kumar', service: 'Residential Building Planning', quote: 'We approached the team for house construction planning and received helpful guidance at every stage. Their focus on practical solutions was impressive.' },
+ { name: 'Harika Devi', service: 'Construction Consultation', quote: 'The team helped us understand the design and planning requirements for our home. Their approach was friendly, professional, and focused on our needs.' },
 ];
