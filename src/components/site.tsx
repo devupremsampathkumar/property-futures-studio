@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { enquirySchema, interests } from '@/lib/enquiry-schema';
 import { submitEnquiry } from '@/lib/enquiry.functions';
-import { projects, pillars, steps, residences, apartments, construction, serviceShowcase, sampleTestimonials, visual3d, waLink, BRAND, WHATSAPP_DISPLAY, type Project } from '@/lib/site-data';
+import { projects, pillars, steps, residences, apartments, construction, serviceShowcase, testimonials, visual3d, waLink, BRAND, WHATSAPP_DISPLAY, type Project } from '@/lib/site-data';
 import logoBlue from '@/assets/bvs-logo-blue.png.asset.json';
 import logoWhite from '@/assets/bvs-logo-white.png.asset.json';
 
@@ -30,7 +30,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
  return <BookingContext.Provider value={book}>
   <Loader/>
    <header className={`site-header ${scrolled || menu ? 'is-scrolled' : ''} ${pathname === '/' && !scrolled && !menu ? 'is-transparent' : ''}`}><div className="header-inner">
-   <Link to="/" className="brand-logo" aria-label={`${BRAND} home`}><img className="logo-white" src={logoWhite.url} alt="" width={452} height={244}/><img className="logo-blue" src={logoBlue.url} alt={BRAND} width={1143} height={616}/></Link>
+   <Link to="/" className="brand-logo" aria-label={`${BRAND} home`} onClick={e => { if (pathname === '/') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); } }}><img className="logo-white" src={logoWhite.url} alt="" width={452} height={244}/><img className="logo-blue" src={logoBlue.url} alt={BRAND} width={1143} height={616}/></Link>
    <nav className="desktop-nav" aria-label="Main navigation">{nav.map(([label, to]) => <Link key={to} to={to} activeOptions={{ exact: true, includeSearch: false }} activeProps={{ className: 'nav-active', 'aria-current': 'page' }}>{label}</Link>)}</nav>
    <div className="header-actions"><Button className="nav-cta" onClick={() => book()}>Book a site visit <ArrowUpRight/></Button><Button variant="ghost" size="icon" className="mobile-toggle" aria-label={menu ? 'Close navigation' : 'Open navigation'} aria-expanded={menu} onClick={() => setMenu(!menu)}>{menu ? <X/> : <Menu/>}</Button></div>
   </div><nav className={`mobile-nav ${menu ? 'is-open' : ''}`} aria-label="Mobile navigation" aria-hidden={!menu}>{nav.map(([label, to]) => <Link to={to} key={to} tabIndex={menu ? 0 : -1} activeOptions={{ exact: true, includeSearch: false }} activeProps={{ className: 'nav-active', 'aria-current': 'page' }}>{label}<ArrowUpRight size={18}/></Link>)}<Button tabIndex={menu ? 0 : -1} onClick={() => { setMenu(false); book(); }}>Book a site visit <ArrowUpRight/></Button></nav></header>
@@ -76,7 +76,9 @@ export function Offerings() {
 }
 export function ProjectsSection({ full = false, initialCategory = 'All' }: { full?: boolean; initialCategory?: string }) {
  const [filter, setFilter] = useState(initialCategory); const [selected, setSelected] = useState<Project | null>(null); const book = useBooking();
+ const filterBar = useRef<HTMLDivElement>(null); const [pill, setPill] = useState({ left: 0, width: 0, ready: false });
  useEffect(() => setFilter(initialCategory), [initialCategory]);
+ useEffect(() => { const measure = () => { const active = filterBar.current?.querySelector('.filter-active') as HTMLElement | null; if (active) setPill({ left: active.offsetLeft, width: active.offsetWidth, ready: true }); }; measure(); const raf = requestAnimationFrame(measure); window.addEventListener('resize', measure); return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', measure); }; }, [filter]);
  const filtered = projects.filter(p => filter === 'All' || p.type === filter);
  return <section id="listings" className={`section projects-section bg-blueprint ${full ? 'full-projects' : ''}`}><SectionHeading label="SPACES WITH PURPOSE" title={<>Discover spaces designed<br/>for better living.</>}><div className="heading-bottom"><p>Considered locations. Thoughtful planning.<br/>Possibilities that feel like home.</p>{!full && <Button asChild variant="outline" className="pill-button"><Link to="/projects">All projects <ArrowUpRight/></Link></Button>}</div></SectionHeading>
  <div className="filter-row" aria-label="Filter projects">{['All','Plots','Flats','Residential Projects','Completed','Ongoing'].map(f => <Button key={f} variant="ghost" className={`filter-button ${filter === f ? 'filter-active' : ''}`} aria-pressed={filter === f} onClick={() => setFilter(f)}>{f}{filter === f && <span className="filter-dot"/>}</Button>)}</div>
