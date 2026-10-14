@@ -7,8 +7,8 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/
 import { enquirySchema, interests } from '@/lib/enquiry-schema';
 import { submitEnquiry } from '@/lib/enquiry.functions';
 import { projects, pillars, steps, residences, apartments, construction, serviceShowcase, testimonials, visual3d, waLink, BRAND, WHATSAPP_DISPLAY, type Project } from '@/lib/site-data';
-import logoBlue from '@/assets/bvs-logo-blue.png.asset.json';
-import logoWhite from '@/assets/bvs-logo-white.png.asset.json';
+const logoBlue = { url: '/images/bvs-logo-blue.png' };
+const logoWhite = { url: '/images/bvs-logo-white.png' };
 
 const BookingContext = createContext<(project?: string) => void>(() => {});
 export const useBooking = () => useContext(BookingContext);
